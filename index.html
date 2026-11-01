@@ -4,35 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7efe3">
-
-  <title>Irfan & Sharafina | Engagement Invitation</title>
+  <meta name="description" content="Irfan and Sharafina Engagement Invitation">
+  <title>Irfan &amp; Sharafina | Engagement Invitation</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       min-height: 100vh;
       background: #f7efe3;
       font-family: Georgia, serif;
-      color: #65564b;
+      overflow-x: hidden;
     }
 
-    /* OPENING SCREEN */
+    /* OPENING COVER */
 
     #openingScreen {
       position: fixed;
       inset: 0;
-      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #f7efe3;
+      z-index: 5;
       padding: 12px;
-      transition: opacity 0.8s ease;
     }
 
     #cover {
@@ -45,6 +44,8 @@
       background-repeat: no-repeat;
     }
 
+    /* DIRECT CANVA LINK */
+
     #openButton {
       position: absolute;
       left: 50%;
@@ -52,9 +53,11 @@
       transform: translate(-50%, -50%);
       width: 27.5%;
       height: 10.5%;
-      border: none;
+      display: block;
       background: transparent;
+      border: none;
       cursor: pointer;
+      text-decoration: none;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -63,103 +66,44 @@
       outline-offset: 4px;
     }
 
-    /* INVITATION SCREEN */
-
-    #invitationScreen {
-      display: none;
-      min-height: 100vh;
-      padding: 35px 20px;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background:
-        radial-gradient(circle at top, #fffaf2, #f7efe3 70%);
-    }
-
-    #invitationScreen.show {
-      display: flex;
-    }
-
-    .invitation-content {
-      width: min(100%, 520px);
-      padding: 40px 25px;
-      border: 1px solid #d8c7b3;
-      outline: 1px solid #d8c7b3;
-      outline-offset: 7px;
-      background: rgba(255, 252, 247, 0.65);
-    }
-
-    .small-text {
-      font-size: 12px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-size: clamp(35px, 9vw, 58px);
-      font-weight: normal;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-
-    .ampersand {
-      font-style: italic;
-      font-size: 0.8em;
-    }
-
-    .description {
-      font-size: 15px;
-      line-height: 1.9;
-      margin: 20px auto 30px;
-      max-width: 340px;
-    }
-
-    .canva-button {
-      display: inline-block;
-      padding: 15px 32px;
-      background: #8d7560;
-      color: white;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: 1px solid #8d7560;
-      transition: 0.3s ease;
-    }
-
-    .canva-button:hover {
-      background: transparent;
-      color: #8d7560;
-    }
-
-    .note {
-      margin-top: 25px;
-      font-size: 12px;
-      line-height: 1.7;
-      color: #8b7a6c;
-    }
-
     /* MUSIC CONTROL */
 
     #musicControl {
       display: none;
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      right: 18px;
+      bottom: 18px;
       z-index: 20;
       border: 1px solid #b9a48e;
       border-radius: 30px;
-      padding: 11px 17px;
-      background: rgba(255, 250, 242, 0.95);
+      background: #fffaf2;
       color: #65564b;
+      padding: 11px 18px;
       font-size: 12px;
       cursor: pointer;
     }
 
-    #musicControl.show {
+    #musicControl.visible {
+      display: block;
+    }
+
+    /* SMALL MUSIC MESSAGE */
+
+    #musicMessage {
+      display: none;
+      position: fixed;
+      bottom: 65px;
+      right: 18px;
+      z-index: 20;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #806d5c;
+      background: #fffaf2;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+
+    #musicMessage.visible {
       display: block;
     }
 
@@ -170,10 +114,6 @@
 
       #cover {
         width: 100%;
-      }
-
-      .invitation-content {
-        padding: 35px 20px;
       }
     }
   </style>
@@ -191,143 +131,110 @@
   </audio>
 
   <!-- OPENING COVER -->
-  <section id="openingScreen">
+  <main id="openingScreen">
+
     <div id="cover">
-      <button
-        id="openButton"
-        aria-label="Open invitation">
-      </button>
-    </div>
-  </section>
 
-  <!-- SECOND SCREEN -->
-  <main id="invitationScreen">
-
-    <div class="invitation-content">
-
-      <p class="small-text">Engagement Invitation</p>
-
-      <h1>
-        Irfan
-        <span class="ampersand">&</span>
-        Sharafina
-      </h1>
-
-      <p class="description">
-        With love and joy, we invite you to celebrate
-        this special occasion with us.
-        <br><br>
-        Kindly open our invitation below for the
-        event details.
-      </p>
+      <!--
+        IMPORTANT:
+        This is a normal HTML link.
+        It opens Canva directly in a new tab.
+        There is NO iframe.
+      -->
 
       <a
-        class="canva-button"
+        id="openButton"
         href="https://sharaxirfanengagement.my.canva.site/engagement-invitation-2026"
         target="_blank"
-        rel="noopener noreferrer">
-        View Invitation
+        rel="noopener noreferrer"
+        aria-label="Open Irfan and Sharafina invitation">
       </a>
-
-      <p class="note">
-        If the invitation does not open automatically,
-        tap the button above.
-      </p>
 
     </div>
 
   </main>
 
-  <!-- MUSIC BUTTON -->
+  <!-- MUSIC CONTROL -->
   <button id="musicControl" type="button">
     ♫ Music: ON
   </button>
 
+  <div id="musicMessage">
+    Background music
+  </div>
+
   <script>
-    const CANVA_URL =
-      "https://sharaxirfanengagement.my.canva.site/engagement-invitation-2026";
+    const openButton = document.getElementById("openButton");
+    const audio = document.getElementById("backgroundMusic");
+    const musicControl = document.getElementById("musicControl");
+    const musicMessage = document.getElementById("musicMessage");
 
-    const openButton =
-      document.getElementById("openButton");
+    let musicStarted = false;
 
-    const openingScreen =
-      document.getElementById("openingScreen");
+    /*
+      Start music when visitor taps OPEN INVITATION.
 
-    const invitationScreen =
-      document.getElementById("invitationScreen");
-
-    const audio =
-      document.getElementById("backgroundMusic");
-
-    const musicControl =
-      document.getElementById("musicControl");
-
-    let opened = false;
+      Do not prevent the default link action.
+      The browser will open Canva in a new tab.
+    */
 
     openButton.addEventListener("click", function () {
 
-      if (opened) return;
-      opened = true;
+      if (!musicStarted) {
+        audio.volume = 1;
+        audio.muted = false;
 
-      /*
-        Start music immediately during the user's click.
-        Do not wait for another action before calling play().
-      */
-      audio.volume = 1;
-      audio.muted = false;
+        const playAttempt = audio.play();
 
-      const musicPromise = audio.play();
+        musicStarted = true;
 
-      // Show the invitation landing screen.
-      openingScreen.style.opacity = "0";
+        musicControl.classList.add("visible");
+        musicMessage.classList.add("visible");
 
-      setTimeout(function () {
-        openingScreen.style.display = "none";
-        invitationScreen.classList.add("show");
-        musicControl.classList.add("show");
-      }, 800);
-
-      /*
-        Open Canva directly in a new tab.
-        Canva does not allow its website to be embedded
-        inside the GitHub Pages website.
-      */
-      const newTab = window.open(
-        CANVA_URL,
-        "_blank",
-        "noopener,noreferrer"
-      );
-
-      // If the browser blocks the new tab, the View Invitation
-      // button on the second screen remains available.
-      if (!newTab) {
-        console.log("Pop-up blocked. Use View Invitation button.");
+        if (playAttempt !== undefined) {
+          playAttempt.then(function () {
+            musicControl.textContent = "♫ Music: ON";
+          }).catch(function () {
+            musicStarted = false;
+            musicControl.textContent = "♫ Tap to Play Music";
+          });
+        }
       }
 
-      if (musicPromise) {
-        musicPromise.catch(function (error) {
-          console.log("Music could not start:", error);
-          musicControl.textContent = "♫ Tap to Play Music";
-        });
-      }
     });
 
-    // Music on/off control.
+    /*
+      MUSIC ON / OFF BUTTON
+    */
+
     musicControl.addEventListener("click", function () {
 
       if (audio.paused) {
+
         audio.play().then(function () {
           musicControl.textContent = "♫ Music: ON";
         }).catch(function (error) {
-          console.log("Music playback failed:", error);
+          console.log("Audio playback error:", error);
         });
 
       } else {
+
         audio.pause();
         musicControl.textContent = "♫ Music: OFF";
+
       }
 
     });
+
+    /*
+      Show music control if playback starts.
+    */
+
+    audio.addEventListener("playing", function () {
+      musicControl.classList.add("visible");
+      musicControl.textContent = "♫ Music: ON";
+    });
+
   </script>
 
 </body>
